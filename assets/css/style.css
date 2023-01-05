@@ -1,0 +1,300 @@
+/* inicio del codigo en movile */
+
+body {
+    margin: 0;
+}
+
+/* inicio del codigo barra de navegacion*/
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        'menu'
+        'busqueda'
+        'main'
+        "paginacion"
+        'footer'
+    ;
+}
+
+.menu {
+    display: flex;
+    grid-area: menu;
+    background-color: rgb(210, 29, 13);
+    color: white;
+    min-width: 100%;
+
+}
+
+.title {
+    display: flex;
+    width: 40%;
+}
+
+.title_i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.menu p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.bar-menu {
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+/* inicio codigo busqueda*/
+.busqueda {
+    grid-area: busqueda;
+    background-color: rgb(232, 229, 74);
+
+}
+
+.busqueda p {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.combo {
+    display: flex;
+    justify-content: center;
+}
+
+.select-css {
+    max-width: 100%;
+    margin-bottom: 1%;
+}
+
+/*inicio codigo catalogo */
+.main {
+    grid-area: main;
+    background-color: rgb(234, 177, 112);
+}
+
+.main img {
+    width: 100%;
+    height: auto;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.paginacion{
+    background-color: rgb(234, 144, 34);
+}
+
+/* como mostrar un solo card */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+/* tarjeta resto de cards */
+.card1 {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+/* inicio codigo paginacion */
+.paginacion {
+    grid-area: paginacion;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 24px 0;
+    list-style: none;
+
+}
+
+.pagination .page-item .page-link {
+    background-color: #fff;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.pagination .page-item:last-child .page-link {
+    border-radius: 0 5px 5px 0;
+}
+
+.pagination .page-item:first-child .page-link {
+    border-radius: 5px 0 0 5px;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #f8f8f8;
+}
+
+/* aside */
+.aside {
+    display: none;
+    grid-area: aside;
+}
+
+/* codigo de la seccion footer*/
+.footer {
+    grid-area: footer;
+    background-color: rgb(232, 229, 74);
+    color: white;
+    text-align: center;
+}
+
+.footer i {
+    margin-top: 15px;
+}
+
+/* inicio media queries tablet*/
+
+@media(min-width: 576px) {
+    .grid-container {
+        display: grid;
+        width: 100%;
+        grid-template-areas:
+            "menu busqueda"
+            "aside main"
+            "footer paginacion"
+        ;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .menu {
+        background-color: rgb(210, 29, 13);
+        /* background-image: url(../img/hamburguesamenu.jpg); */
+    }
+
+    .bar-menu {
+        display: none;
+    }
+
+    /*  .busqueda{
+        display: none;
+    } */
+    .aside {
+        display: grid;
+        background-color: rgb(210, 29, 13);
+        justify-content: center;
+        align-content: center;
+    }
+
+    .catalogo a {
+        color: white;
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        width: 100%;
+    }
+
+    .title_i {
+        margin: 0;
+        padding-left: 15px;
+    }
+
+    .main {
+        grid-area: main;
+       
+
+    }
+    .card{
+        display: none;
+    }
+    .productos{
+        grid-area: productos;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+    .card1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(218, 190, 86);
+        border: solid 1px rgb(217, 124, 25);
+        gap: 10px;
+
+    }
+    .paginacion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+/* inicio media queries Desktop*/
+@media (min-width: 992px){
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-areas: 
+        "menu busqueda busqueda busqueda busqueda"
+        "aside main main main main"
+        "footer paginacion paginacion paginacion paginacion "
+        ;
+    }
+    .productos{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-content: center;
+        align-content: center;
+        gap: 10px;
+        margin-left: 10px;
+
+    }
+    .card {
+        display: none;
+
+    }
+    .card1 {
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(218, 190, 86);
+        border: solid 1px rgb(217, 124, 25);
+       
+
+    }
+
+
+
+}
